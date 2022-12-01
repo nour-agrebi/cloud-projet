@@ -133,40 +133,7 @@ To generate this message, Docker took the following steps:
 To try something more ambitious, you can run an Ubuntu container with:
  $ docker run -it ubuntu bash
 
-Share images, automate workflows, and more with a free Docker ID:
- https://hub.docker.com/
 
-For more examples and ideas, visit:
- https://docs.docker.com/get-started/
-```
-
-Congratulations!  You have run your first Docker container!  Although you can manage it very easily if you are using Docker Desktop, let's look at a couple of the most common commands to manage it on the command line:
-
-```bash
-docker image ls
-
-# OR
-
-docker container ls
-```
-
-Will show you a list of all the images or containers you have on your system at the moment.  Because `hello-world` stops as soon as it's finished printing the test message, it does not keep running forever like a container running a web app would.  You won't see it in your list of containers, but you will see it in your list of images.
-
-Both the ID of the image/container and the name are important to be able to lookup because they allow you to refer to those images/containers to start/stop them.  
-
-When you stop running a container it doesn't get deleted.  That is a good thing!  It means it's super fast to just start it up again the next time you need it without downloading and installing it again.  
-
-While working with Docker you'll find that sometimes these images and containers begin to pile up when you change things or build new versions.  To quickly remove all old/unused ones you can run:
-
-```bash
-docker image prune
-
-# OR
-
-docker container prune
-```
-
-If these don't seem too helpful now, don't worry, but keep them in mind because you will likely want to refer back to them later.
 
 ## Creating a Node App
 
@@ -309,21 +276,7 @@ What do I do!?
 
 Enter Docker.
 
-## Creating a Dockerfile
-
-With Docker we can use code to generate the environment that our app runs in.  We'll begin by searching Docker hub for a Node.js image.  The official Node image is just called [node](https://hub.docker.com/_/node).
-
-You'll notice when you look at supported tags there are a lot of versions.  Just like having a certain version on your machine, there's Docker images for pretty much every version you could want.  Of course Node itself needs to be installed on some kind of operating system so that's usually the other part of the tag.
-
-The default Node image runs on [Debian](https://wiki.debian.org/DebianReleases), however one of the most popular versions runs on something called [Alpine Linux](https://alpinelinux.org/).
-
-The main reason Alpine is popular is because of its small size, it's a distro of Linux designed to strip out all but the most necessary parts.  This means it will be faster and more cost effective to run and distribute our app on this image (assuming it meets our needs).
-
-For our simple app, it does.
-
-Remember we _specifically_ want an older version of Node (older than v15 so our app runs without crashing) so I am going to choose the image tagged `node:14-alpine3.12`.  That's Node v14 and Alpine v3.12.
-
-We can pull the image in advance with `docker pull node:14-alpine3.12` just like we did with `hello-world`, but it's not necessary.  By adding it to our `Dockerfile` Docker will automatically pull it from Docker Hub if it doesn't find it on our machine.
+doesn't find it on our machine.
 
 Let's create a file called `Dockerfile` (no extension) in the root of our project next to `server.js`:
 
